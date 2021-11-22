@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import LarndingPage from "./LandingPage";
 
-function App() {
+const App = () => {
   return (<LarndingPage />);
 }
 

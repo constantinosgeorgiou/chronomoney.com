@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Container, Typography } from "@mui/material";
 
-function LandingPage() {
+const LandingPage = () => {
     return (
         <Container
             component="main"
