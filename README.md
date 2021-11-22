@@ -1,3 +1,12 @@
+# Chronomoney
+Needs to be done:
+- [x] Calculate seconds to other units of time correctly
+- [ ] Build a React component to handle the conversion logic
+- [ ] Build React component to present the data
+- [ ] Beautify using Material UI.
+- [ ] Publish to Github pages
+- [ ] Link domain to Github pages.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
