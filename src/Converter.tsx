@@ -1,5 +1,6 @@
 import * as React from 'react'
-import { Card, CardContent, Container, InputAdornment, TextField, Typography } from '@mui/material';
+import { Card, CardContent, Container, Divider, Grid, List, ListItem, TextField, Typography, InputAdornment } from '@mui/material';
+
 import NumberFormat from 'react-number-format';
 
 import convert_to_time from 'chronos'
@@ -44,6 +45,7 @@ interface State {
 }
 
 const Converter = () => {
+
   const [time, setTime] = React.useState<State>({
     seconds: 0,
     minutes: 0,
@@ -64,34 +66,58 @@ const Converter = () => {
   };
 
   return (
-    <Container component="main" maxWidth="sm" disableGutters>
-      <Card sx={{ minWidth: 275 }}>
+    <Container component="div" maxWidth="sm" disableGutters>
+      <Card>
         <CardContent>
           <TextField
-            variant="standard"
+            variant="outlined"
             fullWidth
-            sx={{ m: 1 }}
             color="success"
-            label="Seconds"
-            InputProps={{
-              startAdornment: <InputAdornment position="start">$</InputAdornment>,
-              inputComponent: NumberFormatCustom as any,
-            }}
+
+            label="Assuming $1 equals 1 second,"
             id="seconds"
             name="seconds"
             value={time.seconds}
             onChange={handleChange}
-          />
 
-          <Typography>Minutes: {time.minutes}</Typography>
-          <Typography>Hours: {time.hours}</Typography>
-          <Typography>Days: {time.days}</Typography>
-          <Typography>Weeks: {time.weeks}</Typography>
-          <Typography>Months: {time.months}</Typography>
-          <Typography>Years: {time.years}</Typography>
+            InputProps={{
+              inputComponent: NumberFormatCustom as any,
+              style: { fontSize: 50, color: "green" },
+              multiline: true
+            }}
+          />
+          <Container>
+            <List>
+              <Divider sx={{ my: 2 }} >seconds is approximately</Divider>
+              <ListItem>
+                <Grid item xs><Typography>Minutes:</Typography></Grid>
+                <Grid item xs><Typography>{time.minutes}</Typography></Grid>
+              </ListItem>
+              <ListItem>
+                <Grid item xs><Typography>Hours:</Typography></Grid>
+                <Grid item xs><Typography>{time.hours}</Typography></Grid>
+              </ListItem>
+              <ListItem>
+                <Grid item xs><Typography>Days:</Typography></Grid>
+                <Grid item xs><Typography>{time.days}</Typography></Grid>
+              </ListItem>
+              <ListItem>
+                <Grid item xs><Typography>Weeks:</Typography></Grid>
+                <Grid item xs><Typography>{time.weeks}</Typography></Grid>
+              </ListItem>
+              <ListItem>
+                <Grid item xs><Typography>Months:</Typography></Grid>
+                <Grid item xs><Typography>{time.months}</Typography></Grid>
+              </ListItem>
+              <ListItem>
+                <Grid item xs><Typography>Years:</Typography></Grid>
+                <Grid item xs><Typography>{time.years}</Typography></Grid>
+              </ListItem>
+            </List>
+          </Container>
         </CardContent>
       </Card>
-    </Container>
+    </Container >
   );
 }
 
